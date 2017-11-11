@@ -1,3 +1,6 @@
+{% extends 'lib/base.html' %}
+
+{% block content %}
 <h1>Books</h1>
 {% if all_books_list %}
     <ul>
@@ -8,3 +11,4 @@
 {% else %}
     <p>No books</p>
 {% endif %}
+{% endblock content %}

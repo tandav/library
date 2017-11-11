@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Library</title>
+</head>
+<body>
+    <a href="{% url 'library:books' %}">Books</a>
+    <a href="{% url 'library:authors' %}">Authors</a>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
+
+

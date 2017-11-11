@@ -1,3 +1,6 @@
+{% extends 'lib/base.html' %}
+
+{% block content %}
 <h1>{{ author.name }}</h1>
 <h2>Books</h2>
 <ul>
@@ -6,3 +9,4 @@
     <li><a href="{% url 'library:book_detail' book.id %}">{{ book.name  }}</a></li>
 {% endfor %}
 </ul>
+{% endblock content %}

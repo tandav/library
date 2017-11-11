@@ -1,3 +1,6 @@
+{% extends 'lib/base.html' %}
+
+{% block content %}
 <h1>Authors</h1>
 {% if all_authors_list %}
     <ul>
@@ -8,3 +11,4 @@
 {% else %}
     <p>No authors</p>
 {% endif %}
+{% endblock content %}
