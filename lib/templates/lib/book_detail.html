@@ -1,2 +1,2 @@
 <h1>{{ book.name }}</h1>
-Author: {{ book.author }}
+Author: <a href="{% url 'library:author_detail' book.author.id %}">{{ book.author.name }}</a>
