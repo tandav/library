@@ -22,4 +22,4 @@ def books(request):
 
 def book_detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
-    return render(request, 'lib/detail.html', {'book': book})
+    return render(request, 'lib/book_detail.html', {'book': book})
