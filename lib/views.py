@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from .models import Author, Book
 
@@ -11,4 +11,7 @@ def books(request):
     return render(request, 'lib/books.html', context)
 
 def book_detail(request, book_id):
-    return HttpResponse('Detailed view for book {}'.format(book_id))
+    # return HttpResponse('Detailed view for book {}'.format(book_id))
+
+    book_name = get_object_or_404(Book, pk=book_id)
+    return render(request, 'lib/detail.html', {'book_name': book_name})
