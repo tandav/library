@@ -11,7 +11,5 @@ def books(request):
     return render(request, 'lib/books.html', context)
 
 def book_detail(request, book_id):
-    # return HttpResponse('Detailed view for book {}'.format(book_id))
-
-    book_name = get_object_or_404(Book, pk=book_id)
-    return render(request, 'lib/detail.html', {'book_name': book_name})
+    book = get_object_or_404(Book, pk=book_id)
+    return render(request, 'lib/detail.html', {'book': book})
