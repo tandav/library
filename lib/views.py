@@ -1,6 +1,7 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from .models import Author, Book
+from .forms import AddBookForm
 
 def index(request):
     return HttpResponse('Welcome to the library')
@@ -23,3 +24,13 @@ def books(request):
 def book_detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     return render(request, 'lib/book_detail.html', {'book': book})
+
+def add_book(request):
+    if request.method == 'POST':
+        form = AddBookForm(request.POST)
+        if form.is_valid():
+            book = form.save() # try reduce to one line: book = form.save()
+            return redirect('library:books')
+
+    form = AddBookForm()
+    return render(request, 'lib/book_edit.html', {'form': form})

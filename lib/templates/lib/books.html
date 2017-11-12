@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Books</h1>
+
 {% if all_books_list %}
     <ul>
     {% for book in all_books_list %}
@@ -11,4 +12,6 @@
 {% else %}
     <p>No books</p>
 {% endif %}
+
+<a href="{% url 'library:add_book' %}">Add Book</a>
 {% endblock content %}
