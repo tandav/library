@@ -2,10 +2,11 @@
 
 {% block content %}
 <h1>Authors</h1>
+
 {% if all_authors_list %}
     <ul>
     {% for author in all_authors_list %}
-        <li><a href="{% url 'library:author_detail' author.id %}">{{ author.name  }}</a></li>
+        <li><a href="{% url 'library:author_detail' author.id %}">{{ author.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
