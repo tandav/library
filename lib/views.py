@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from .models import Author, Book
-from .forms import AddBookForm
+from .forms import AddBookForm, AddAuthorForm
 
 
 def index(request):
@@ -18,6 +18,16 @@ def author_detail(request, author_id):
     author = get_object_or_404(Author, pk=author_id)
     books = Book.objects.filter(author_id=author_id)
     return render(request, 'lib/author_detail.html', {'author': author, 'books': books})
+
+
+def add_author(request):
+    if request.method == 'POST':
+        form = AddAuthorForm(request.POST)
+        if form.is_valid():
+            author = form.save()
+            return redirect('library:authors')
+    form = AddAuthorForm()
+    return render(request, 'lib/author_edit.html', {'form': form})
 
 
 def books(request):
