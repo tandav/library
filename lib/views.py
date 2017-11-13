@@ -95,7 +95,7 @@ def add_book(request):
     form = BookForm()
     context = {
         'form': form,
-        'heading': 'Edit book: ' + book.title,
+        'heading': 'Add new book',
         'button_text': 'Add'
     }
     return render(request, 'lib/book_add_or_edit.html', context)
