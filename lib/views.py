@@ -27,7 +27,7 @@ def add_author(request):
             author = form.save()
             return redirect('library:authors')
     form = AddAuthorForm()
-    return render(request, 'lib/author_edit.html', {'form': form})
+    return render(request, 'lib/author_add.html', {'form': form})
 
 
 def books(request):
@@ -48,4 +48,4 @@ def add_book(request):
             book = form.save()
             return redirect('library:books')
     form = AddBookForm()
-    return render(request, 'lib/book_edit.html', {'form': form})
+    return render(request, 'lib/book_add.html', {'form': form})
