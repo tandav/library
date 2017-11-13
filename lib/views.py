@@ -8,6 +8,7 @@ def index(request):
     return HttpResponse('Welcome to the library')
 
 
+# ============================== Author functions ================================
 def authors(request):
     all_authors_list = Author.objects.all()
     context = {'all_authors_list': all_authors_list}
@@ -30,6 +31,25 @@ def add_author(request):
     return render(request, 'lib/author_add.html', {'form': form})
 
 
+def update_author(request, author_id):
+    author = get_object_or_404(Author, id=author_id)
+    if request.POST:
+        form = AuthorForm(request.POST, instance=author)
+        if form.is_valid():
+            form.save()
+            return redirect('library:authors')
+    form = AuthorForm(instance=author)
+    context = {'form': form}
+    return render(request, 'lib/author_add.html', context)
+
+
+def delete_author(request, author_id):
+    author = get_object_or_404(Author, id=author_id)
+    author.delete()
+    return redirect('library:authors')
+
+
+# ============================== Book functions ================================
 def books(request):
     all_books_list = Book.objects.all()
     context = {'all_books_list': all_books_list}
@@ -63,13 +83,7 @@ def update_book(request, book_id):
     return render(request, 'lib/book_add.html', context)
 
 
-def update_author(request, author_id):
-    author = get_object_or_404(Author, id=author_id)
-    if request.POST:
-        form = AuthorForm(request.POST, instance=author)
-        if form.is_valid():
-            form.save()
-            return redirect('library:authors')
-    form = AuthorForm(instance=author)
-    context = {'form': form}
-    return render(request, 'lib/author_add.html', context)
+def delete_book(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    book.delete()
+    return redirect('library:books')

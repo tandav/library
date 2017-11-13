@@ -4,6 +4,7 @@
 <h1>{{ author.name }}</h1>
 <h2>Books</h2>
 <a href="{% url 'library:edit_author' author.id %}">Edit</a>
+<a href="{% url 'library:delete_author' author.id %}">Delete</a>
 <br>
 <ul>
 {% for book in books %}
