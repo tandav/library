@@ -7,7 +7,10 @@
 {% if found_books %}
     <ul>
     {% for book in found_books %}
-        <li><a href="{% url 'library:book_detail' book.id %}">{{ book.title  }}</a></li>
+        <li>
+            <a href="{% url 'library:book_detail' book.id %}">{{ book.title }}</a> —
+            <a href="{% url 'library:author_detail' book.author.id %}">{{ book.author.name }}</a>
+        </li>
     {% endfor %}
     </ul>
 {% else %}

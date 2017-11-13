@@ -14,7 +14,10 @@
 {% if all_books_list %}
     <ul>
     {% for book in all_books_list %}
-        <li><a href="{% url 'library:book_detail' book.id %}">{{ book.title  }}</a></li>
+        <li>
+            <a href="{% url 'library:book_detail' book.id %}">{{ book.title }}</a> —
+            <a href="{% url 'library:author_detail' book.author.id %}">{{ book.author.name }}</a>
+        </li>
     {% endfor %}
     </ul>
 {% else %}
