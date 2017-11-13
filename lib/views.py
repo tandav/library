@@ -44,7 +44,12 @@ def add_author(request):
             author = form.save()
             return redirect('library:authors')
     form = AuthorForm()
-    return render(request, 'lib/author_add.html', {'form': form})
+    context = {
+        'form': form,
+        'heading': 'Add new author',
+        'button_text': 'Add'
+    }
+    return render(request, 'lib/author_add_or_edit.html', context)
 
 
 def update_author(request, author_id):
@@ -55,8 +60,12 @@ def update_author(request, author_id):
             form.save()
             return redirect('library:authors')
     form = AuthorForm(instance=author)
-    context = {'form': form}
-    return render(request, 'lib/author_add.html', context)
+    context = {
+        'form': form,
+        'heading': 'Edit author: ' + author.name,
+        'button_text': 'Save'
+    }
+    return render(request, 'lib/author_add_or_edit.html', context)
 
 
 def delete_author(request, author_id):
@@ -84,7 +93,12 @@ def add_book(request):
             book = form.save()
             return redirect('library:books')
     form = BookForm()
-    return render(request, 'lib/book_add.html', {'form': form})
+    context = {
+        'form': form,
+        'heading': 'Edit book: ' + book.title,
+        'button_text': 'Add'
+    }
+    return render(request, 'lib/book_add_or_edit.html', context)
 
 
 def update_book(request, book_id):
@@ -95,8 +109,12 @@ def update_book(request, book_id):
             form.save()
             return redirect('library:books')
     form = BookForm(instance=book)
-    context = {'form': form}
-    return render(request, 'lib/book_add.html', context)
+    context = {
+        'form': form,
+        'heading': 'Edit book: ' + book.title,
+        'button_text': 'Save'
+    }
+    return render(request, 'lib/book_add_or_edit.html', context)
 
 
 def delete_book(request, book_id):
