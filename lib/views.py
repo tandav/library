@@ -93,7 +93,7 @@ def search(request):
     query = request.GET['q']
     print(request.GET['search_by'])
     if request.GET['search_by'] == 'title':
-        found_books = Book.objects.filter(name__icontains=query)
+        found_books = Book.objects.filter(title__icontains=query)
         heading = 'Search by Title:'
     elif request.GET['search_by'] == 'author':
         found_books = Book.objects.filter(author__name__icontains=query)

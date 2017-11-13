@@ -1,7 +1,7 @@
 {% extends 'lib/base.html' %}
 
 {% block content %}
-<h1>{{ book.name }}</h1>
+<h1>{{ book.title }}</h1>
 <a href="{% url 'library:edit_book' book.id %}">Edit</a>
 <a href="{% url 'library:delete_book' book.id %}">Delete</a>
 <br>
