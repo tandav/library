@@ -3,10 +3,11 @@
 {% block content %}
 <h1>{{ author.name }}</h1>
 <h2>Books</h2>
+<a href="{% url 'library:edit_author' author.id %}">Edit</a>
+<br>
 <ul>
 {% for book in books %}
-    <!-- <li>{{book.name}}</li> -->
-    <li><a href="{% url 'library:book_detail' book.id %}">{{ book.name  }}</a></li>
+    <li><a href="{% url 'library:book_detail' book.id %}">{{ book.name }}</a></li>
 {% endfor %}
 </ul>
 {% endblock content %}

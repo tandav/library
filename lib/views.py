@@ -49,3 +49,27 @@ def add_book(request):
             return redirect('library:books')
     form = BookForm()
     return render(request, 'lib/book_add.html', {'form': form})
+
+
+def update_book(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    if request.POST:
+        form = BookForm(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            return redirect('library:books')
+    form = BookForm(instance=book)
+    context = {'form': form}
+    return render(request, 'lib/book_add.html', context)
+
+
+def update_author(request, author_id):
+    author = get_object_or_404(Author, id=author_id)
+    if request.POST:
+        form = AuthorForm(request.POST, instance=author)
+        if form.is_valid():
+            form.save()
+            return redirect('library:authors')
+    form = AuthorForm(instance=author)
+    context = {'form': form}
+    return render(request, 'lib/author_add.html', context)
