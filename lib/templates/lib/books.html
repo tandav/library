@@ -3,6 +3,14 @@
 {% block content %}
 <h1>Books</h1>
 
+<form method="get" action="{% url 'library:search' %}">
+    <input type="text" name="q" placeholder="Search">
+    Search By:
+    <label><input type="radio" name="search_by" value="title" checked="checked">Title</label>
+    <label><input type="radio" name="search_by" value="author">Author</label>
+    <input type="submit" value="Search" >
+</form>
+
 {% if all_books_list %}
     <ul>
     {% for book in all_books_list %}

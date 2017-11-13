@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^add_author/$', views.add_author, name='add_author'),
     url(r'^edit_author/(?P<author_id>[0-9]+)$', views.update_author, name='edit_author'),
     url(r'^delete_author/(?P<author_id>[0-9]+)$', views.delete_author, name='delete_author'),
+    url(r'^search/$', views.search, name='search'),
 ]

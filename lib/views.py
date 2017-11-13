@@ -87,3 +87,19 @@ def delete_book(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     book.delete()
     return redirect('library:books')
+
+
+def search(request):
+    query = request.GET['q']
+    print(request.GET['search_by'])
+    if request.GET['search_by'] == 'title':
+        found_books = Book.objects.filter(name__icontains=query)
+        heading = 'Search by Title:'
+    elif request.GET['search_by'] == 'author':
+        found_books = Book.objects.filter(author__name__icontains=query)
+        heading = 'Search by Author:'
+
+    context = { 'query': query, 
+                'found_books': found_books,
+                'heading': heading}
+    return render(request, 'lib/results.html', context)

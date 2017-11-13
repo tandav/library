@@ -1,0 +1,17 @@
+{% extends 'lib/base.html' %}
+
+{% block content %}
+
+<h1>{{ heading }} "{{ query }}"</h1>
+
+{% if found_books %}
+    <ul>
+    {% for book in found_books %}
+        <li><a href="{% url 'library:book_detail' book.id %}">{{ book.name  }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No books</p>
+{% endif %}
+
+{% endblock content %}
