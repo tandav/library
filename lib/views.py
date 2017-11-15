@@ -14,13 +14,18 @@ def search(request):
     if request.GET['search_by'] == 'title':
         found_books = Book.objects.filter(title__icontains=query)
         heading = 'Search by Title:'
+        bad_result = 'No books'
     elif request.GET['search_by'] == 'author':
         found_books = Book.objects.filter(author__name__icontains=query)
         heading = 'Search by Author:'
+        bad_result = 'No authors'
 
-    context = { 'query': query, 
-                'found_books': found_books,
-                'heading': heading}
+    context = {
+        'query': query, 
+        'found_books': found_books,
+        'heading': heading,
+        'bad_result': bad_result,
+    }
     return render(request, 'lib/results.html', context)
 
 
