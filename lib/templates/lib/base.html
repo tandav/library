@@ -6,8 +6,13 @@
     <title>Library</title>
 </head>
 <body>
-    <a href="{% url 'library:books' %}">Books</a>
-    <a href="{% url 'library:authors' %}">Authors</a>
+    <div class="header_links">
+        <div class="header_left_links">
+            <a class="header_links_item" href="{% url 'library:books' %}">All Books</a>
+            <a class="header_links_item" href="{% url 'library:authors' %}">All Authors</a>
+        </div>
+        <a class="header_links_item" href="https://github.com/tandav/library">Source on GitHub</a>
+    </div>
     {% block content %}
     {% endblock content %}
 </body>

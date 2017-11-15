@@ -5,7 +5,7 @@ body {
     margin-right: auto;
     padding: 10px;
     width: 800px;
-    border: 1px solid #aaa;
+    border: 1px solid #055DB5;
     color: #404547;
 }
 
@@ -20,4 +20,18 @@ a:hover {
 
 li {
     margin: 0 0 0.5rem 0;
+}
+
+
+.header_links_item {
+    padding: 4px;
+    margin: 0 4px 0 4px;
+    border: 1px solid #055DB5;
+}
+
+.header_links {
+    margin-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
