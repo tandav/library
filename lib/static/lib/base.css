@@ -20,6 +20,6 @@ a:hover {
     text-decoration: underline;
 }
 
-ul {
-
+li {
+    margin: 0 0 0.5rem 0;
 }
