@@ -5,7 +5,7 @@ from .forms import BookForm, AuthorForm
 
 
 def index(request):
-    return HttpResponse('Welcome to the library')
+        return redirect('library:books')
 
 
 def search(request):
