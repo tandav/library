@@ -2,8 +2,9 @@
 
 {% block content %}
 <h1>{{ book.title }}</h1>
-<a href="{% url 'library:edit_book' book.id %}">Edit</a>
-<a href="{% url 'library:delete_book' book.id %}">Delete</a>
+<a class="button_link" href="{% url 'library:edit_book' book.id %}">Edit</a>
+<a class="button_link" href="{% url 'library:delete_book' book.id %}">Delete</a>
+<br>
 <br>
 Author: <a href="{% url 'library:author_detail' book.author.id %}">{{ book.author.name }}</a>
 {% endblock content %}

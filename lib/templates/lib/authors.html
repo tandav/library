@@ -3,6 +3,15 @@
 {% block content %}
 <h1>Authors</h1>
 
+<form method="get" action="{% url 'library:search' %}">
+    <input type="text" name="q" placeholder="Search">
+    <button class="button_link" type="submit">Search</button>
+    <br>
+    Search By:
+    <label><input type="radio" name="search_by" value="title">Title</label>
+    <label><input type="radio" name="search_by" value="author" checked="checked">Author</label>
+</form>
+
 {% if all_authors_list %}
     <ul>
     {% for author in all_authors_list %}
@@ -13,5 +22,5 @@
     <p>No authors</p>
 {% endif %}
 
-<a href="{% url 'library:add_author' %}">Add Author</a>
+<a class="button_link" href="{% url 'library:add_author' %}">Add Author</a>
 {% endblock content %}
