@@ -25,7 +25,7 @@ SECRET_KEY = '$lp#%1d*mj0sh2d@r@u*2u$22*kccwoll_pxb+7xw_%d*ia2gf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['tandav.pythonanywhere.com']
+ALLOWED_HOSTS = ['tandav.pythonanywhere.com', '0.0.0.0']
 
 
 # Application definition
