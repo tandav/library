@@ -29,7 +29,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'tandav.pythonanywhere.com', 
     '0.0.0.0',
-    'still-sands-75124.herokuapp.com',]
+    '.herokuapp.com',
+]
 
 
 # Application definition
