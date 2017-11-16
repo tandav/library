@@ -28,6 +28,13 @@ li {
     border: 1px solid #055DB5;
 }
 
+.delete_link {
+    padding: 4px;
+    margin: 4px;
+    border: 1px solid #b50508;
+    color: #b50508;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
